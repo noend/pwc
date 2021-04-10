@@ -1,0 +1,2 @@
+-- Do nothing
+-- insert into users values (nextval('USER_SEQUENCE'))

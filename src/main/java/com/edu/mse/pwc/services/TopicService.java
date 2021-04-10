@@ -1,6 +1,7 @@
 package com.edu.mse.pwc.services;
 
 import com.edu.mse.pwc.dtos.TopicDto;
+import com.edu.mse.pwc.exceptions.TopicNotFoundException;
 import com.edu.mse.pwc.mappers.TopicMapper;
 import com.edu.mse.pwc.persistence.entities.TopicEntity;
 import com.edu.mse.pwc.persistence.repository.TopicRepository;
@@ -30,10 +31,10 @@ public class TopicService {
             TopicEntity topicEntity = byId.get();
             return topicMapper.topicEntityToDto(topicEntity);
         }
-        throw new IllegalArgumentException("No such topic");
+        throw new TopicNotFoundException("No topic with id " + id + " was found");
     }
 
     public List<TopicDto> getAllTopics() {
-        return topicRepository.findAll().stream().map(t -> topicMapper.topicEntityToDto(t)).collect(Collectors.toList());
+        return topicRepository.findAll().stream().map(topicMapper::topicEntityToDto).collect(Collectors.toList());
     }
 }

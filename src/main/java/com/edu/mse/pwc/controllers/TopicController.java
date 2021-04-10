@@ -34,4 +34,11 @@ public class TopicController {
         return topicService.createTopic(topic);
     }
 
+//    @ExceptionHandler(value = {TopicNotFoundException.class, ReplyNotFoundException.class})
+//    protected ResponseEntity<ErrorDto> handleException(Exception e) {
+//        ErrorDto build = ErrorDto.builder().message(e.getMessage()).build();
+//        ResponseEntity<ErrorDto> error = new ResponseEntity<>(build, HttpStatus.INTERNAL_SERVER_ERROR);
+//        return error;
+//    }
+
 }
