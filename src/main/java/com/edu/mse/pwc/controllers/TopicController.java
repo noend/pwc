@@ -1,8 +1,11 @@
 package com.edu.mse.pwc.controllers;
 
 import com.edu.mse.pwc.dtos.TopicDto;
+import com.edu.mse.pwc.persistence.entities.Role;
 import com.edu.mse.pwc.services.TopicService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/topics")
+@RolesAllowed(value = {"MODERATOR", "ADMIN", "USER"})
 public class TopicController {
 
     private final TopicService topicService;

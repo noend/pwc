@@ -1,2 +1,1 @@
--- Do nothing
--- insert into users values (nextval('USER_SEQUENCE'))
+insert into users values (nextval('HIBERNATE_SEQUENCE'), '2021-04-10T06:49:45.105+00:00', '2021-04-10T06:49:45.105+00:00', 'ivo', 'ivo', 'ivo', 'ADMIN', 'ivo')

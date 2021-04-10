@@ -35,7 +35,9 @@ class PwcApplicationTests {
 		Gson gson = new Gson();
 		String topicJson = gson.toJson(topic);
 
-		MockHttpServletRequestBuilder topicPost = post("/api/topics").contentType(MediaType.APPLICATION_JSON).content(topicJson);
+		MockHttpServletRequestBuilder topicPost = post("/api/topics")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(topicJson);
 
 		mvc.perform(topicPost)
 				.andExpect(status().isOk())
