@@ -1,0 +1,3 @@
+insert into users values (nextval('HIBERNATE_SEQUENCE'), '2021-05-10T06:49:45.105+00:00', '2021-05-10T06:49:45.105+00:00', 'Hristo', 'Nikolov', '145954', 'ADMIN', 'hristo');
+insert into users values (nextval('HIBERNATE_SEQUENCE'), '2021-05-10T06:50:45.105+00:00', '2021-05-10T06:49:45.105+00:00', 'User', 'Userov', '145954', 'USER', 'user');
+insert into users values (nextval('HIBERNATE_SEQUENCE'), '2021-05-10T06:51:45.105+00:00', '2021-05-10T06:49:45.105+00:00', 'Moderator', 'Moderatorov', '145954', 'MODERATOR', 'moderator');

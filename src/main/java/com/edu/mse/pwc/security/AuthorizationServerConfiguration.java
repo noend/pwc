@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
     private final static String[] GRANT_TYPES = {"password", "get_token", "refresh_token"};
+    static final int ACCESS_TOKEN_VALIDITY_SECONDS = 4 * 60 * 60;
 
     @Autowired
     private TokenStore tokenStore;
@@ -29,7 +30,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .withClient("admin")
                 .secret(encoder().encode("admin"))
                 .autoApprove(true)
-                .scopes("read", "write")
+                .scopes("read", "write").accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
                 .authorizedGrantTypes(GRANT_TYPES);
     }
 
