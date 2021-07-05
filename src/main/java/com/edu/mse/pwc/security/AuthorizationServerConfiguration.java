@@ -48,4 +48,5 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

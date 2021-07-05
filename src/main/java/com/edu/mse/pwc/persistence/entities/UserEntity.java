@@ -5,13 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -20,6 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name = "users")
 public class UserEntity extends BaseEntity {
+    @Id
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "username")
     private String username;
