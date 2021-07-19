@@ -37,11 +37,24 @@ public class UserService {
         return userMapper.userEntityToDto(byId.get());
     }
 
-    public UserEntity getUserByUsername(String username) throws IllegalArgumentException {
-        UserEntity user = userRepository
-                .findByUsername(username)
-                .orElseThrow(() -> new IllegalArgumentException("No such user " + username));
-        return user;
+    public UserEntity getUserByUsername(String username)  {
+
+        return userRepository
+                .findByUsername(username).orElse(null);
+    }
+
+    public UserEntity getUserEntity(long id) {
+        Optional<UserEntity> byId = userRepository.findById(id);
+        if (!byId.isPresent()) {
+            throw new IllegalArgumentException("No user found for id " + id);
+        }
+        return byId.get();
+    }
+
+    public UserDto updateUser(UserDto user) {
+        UserEntity newOne = userMapper.userDtoToEntity(user);
+        newOne = userRepository.save(newOne);
+        return userMapper.userEntityToDto(newOne);
     }
 
 }

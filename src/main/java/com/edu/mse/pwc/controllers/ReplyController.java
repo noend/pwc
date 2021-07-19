@@ -20,7 +20,7 @@ public class ReplyController {
 
     private final ReplyService replyService;
 
-    @PostMapping
+    @PostMapping("/createReply")
     public ReplyDto createReply(@RequestBody ReplyDto reply) {
         return replyService.createReply(reply);
     }

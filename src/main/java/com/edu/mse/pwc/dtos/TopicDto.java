@@ -17,6 +17,8 @@ public class TopicDto {
     private String title;
     private Date createdAt;
     private Date modifiedAt;
+    private Long views;
     private Long userId;
+    private UserDto user;
 
 }

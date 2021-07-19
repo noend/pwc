@@ -1,6 +1,7 @@
 package com.edu.mse.pwc.dtos;
 
 import com.edu.mse.pwc.persistence.entities.Role;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private Role role;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
 }

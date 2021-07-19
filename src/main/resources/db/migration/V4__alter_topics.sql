@@ -1,0 +1,1 @@
+alter table topics add views bigint after user_id
